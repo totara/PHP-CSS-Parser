@@ -1308,4 +1308,17 @@ body {background-color: red;}';
         self::assertTrue(is_a($urlRule->getValue(), '\Sabberworm\CSS\Value\URL'));
         self::assertTrue(is_a($calcRule->getValue(), '\Sabberworm\CSS\Value\CalcFunction'));
     }
+
+    /**
+     * @test
+     */
+    public function testInnerCommentExtracting() {
+        $parser = new Parser('div {left:10px;/*Find Me!*/text-align:left;}');
+        $doc = $parser->parse();
+        $contents = $doc->getContents();
+        $divRules = $contents[0]->getRules();
+        $comments = $divRules[1]->getComments();
+        $this->assertCount(1, $comments);
+        $this->assertEquals("Find Me!", $comments[0]->getComment());
+    }
 }
