@@ -90,7 +90,7 @@ abstract class CSSList implements Renderable, Commentable
                 $oListItem->addComments($aComments);
                 $oList->append($oListItem);
             }
-            $aComments = $oParserState->consumeWhiteSpace();
+            $aComments = $oParserState->consumeWhiteSpace(false);
         }
         $oList->addComments($aComments);
         if (!$bIsRoot && !$bLenientParsing) {

@@ -226,17 +226,21 @@ class ParserState
     }
 
     /**
+     * @param bool $consumeComments
      * @return array<int, Comment>|void
      *
      * @throws UnexpectedEOFException
      * @throws UnexpectedTokenException
      */
-    public function consumeWhiteSpace()
+    public function consumeWhiteSpace($consumeComments = true)
     {
         $aComments = [];
         do {
             while (preg_match('/\\s/isSu', $this->peek()) === 1) {
                 $this->consume(1);
+            }
+            if (!$consumeComments) {
+                return;
             }
             if ($this->oParserSettings->bLenientParsing) {
                 try {
