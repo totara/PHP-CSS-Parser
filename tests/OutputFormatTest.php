@@ -42,7 +42,7 @@ EOT;
      */
     private $oDocument;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->oParser = new Parser(self::TEST_CSS);
         $this->oDocument = $this->oParser->parse();
@@ -268,12 +268,13 @@ background-color: #fff;
     }
 
     /**
-     * @expectedException \Sabberworm\CSS\Parsing\OutputException
+     *
      *
      * @test
      */
     public function ignoreExceptionsOff()
     {
+        $this->expectException(\Sabberworm\CSS\Parsing\OutputException::class);
         $aBlocks = $this->oDocument->getAllDeclarationBlocks();
         $oFirstBlock = $aBlocks[0];
         $oFirstBlock->removeSelector('.main');
