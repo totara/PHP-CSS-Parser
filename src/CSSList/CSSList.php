@@ -89,7 +89,7 @@ abstract class CSSList implements Renderable, Commentable
                 $oListItem->setComments($comments);
                 $oList->append($oListItem);
             }
-            $oParserState->consumeWhiteSpace();
+            $oParserState->consumeWhiteSpace(false);
         }
         if (!$bIsRoot && !$bLenientParsing) {
             throw new SourceException("Unexpected end of document", $oParserState->currentLine());
@@ -295,6 +295,20 @@ abstract class CSSList implements Renderable, Commentable
     public function splice($iOffset, $iLength = null, $mReplacement = null)
     {
         array_splice($this->aContents, $iOffset, $iLength, $mReplacement);
+    }
+
+    /**
+     * Insert an item before its sibling.
+     *
+     * @param mixed $oItem The item.
+     * @param mixed $oSibling The sibling.
+     */
+    public function insert($oItem, $oSibling) {
+        $iIndex = array_search($oSibling, $this->aContents);
+        if ($iIndex === false) {
+            return $this->append($oItem);
+        }
+        array_splice($this->aContents, $iIndex, 0, array($oItem));
     }
 
     /**
