@@ -21,12 +21,13 @@ use Sabberworm\CSS\Settings;
 class LenientParsingTest extends TestCase
 {
     /**
-     * @expectedException \Sabberworm\CSS\Parsing\UnexpectedTokenException
+     *
      *
      * @test
      */
     public function faultToleranceOff()
     {
+        $this->expectException(\Sabberworm\CSS\Parsing\UnexpectedTokenException::class);
         $sFile = __DIR__ . '/../fixtures/-fault-tolerance.css';
         $oParser = new Parser(file_get_contents($sFile), Settings::create()->beStrict());
         $oParser->parse();
@@ -48,24 +49,26 @@ class LenientParsingTest extends TestCase
     }
 
     /**
-     * @expectedException \Sabberworm\CSS\Parsing\UnexpectedTokenException
+     *
      *
      * @test
      */
     public function endToken()
     {
+        $this->expectException(\Sabberworm\CSS\Parsing\UnexpectedTokenException::class);
         $sFile = __DIR__ . '/../fixtures/-end-token.css';
         $oParser = new Parser(file_get_contents($sFile), Settings::create()->beStrict());
         $oParser->parse();
     }
 
     /**
-     * @expectedException \Sabberworm\CSS\Parsing\UnexpectedTokenException
+     *
      *
      * @test
      */
     public function endToken2()
     {
+        $this->expectException(\Sabberworm\CSS\Parsing\UnexpectedTokenException::class);
         $sFile = __DIR__ . '/../fixtures/-end-token-2.css';
         $oParser = new Parser(file_get_contents($sFile), Settings::create()->beStrict());
         $oParser->parse();
