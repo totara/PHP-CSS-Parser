@@ -247,7 +247,7 @@ class ParserState
                 $this->consume(1);
             }
             if (!$consumeComments) {
-                return;
+                return $aComments;
             }
             if ($this->oParserSettings->bLenientParsing) {
                 try {
