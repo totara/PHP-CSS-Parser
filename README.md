@@ -1,16 +1,15 @@
 # PHP CSS Parser
 
-[![Build Status](https://github.com/MyIntervals/PHP-CSS-Parser/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MyIntervals/PHP-CSS-Parser/actions/)
-[![Coverage Status](https://coveralls.io/repos/github/MyIntervals/PHP-CSS-Parser/badge.svg?branch=main)](https://coveralls.io/github/MyIntervals/PHP-CSS-Parser?branch=main)
-
 A Parser for CSS Files written in PHP. Allows extraction of CSS files into a data structure, manipulation of said structure and output as (optimized) CSS.
+
+This is the Totara-specific fork, which adds on some Totara-specific compatibility feature/fixes. If you're not using Totara, highly recommend you use the original package.
 
 ## Usage
 
 ### Installation using Composer
 
 ```bash
-composer require sabberworm/php-css-parser
+composer require totara/php-css-parser
 ```
 
 ### Extraction
