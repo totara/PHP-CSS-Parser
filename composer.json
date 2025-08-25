@@ -1,13 +1,12 @@
 {
-    "name": "sabberworm/php-css-parser",
+    "name": "totara/php-css-parser",
     "type": "library",
-    "description": "Parser for CSS Files written in PHP",
+    "description": "Fork of PHP-CSS-Parser for Totara",
     "keywords": [
         "parser",
         "css",
         "stylesheet"
     ],
-    "homepage": "https://www.sabberworm.com/blog/2010/6/10/php-css-parser",
     "license": "MIT",
     "authors": [
         {
@@ -23,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^5.6.20 || ^7.0.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
         "ext-iconv": "*"
     },
     "require-dev": {
@@ -45,7 +44,11 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "9.0.x-dev"
+            "dev-8.9.0-totara": "8.9.0-totara"
         }
-    }
+    },
+    "replace": {
+        "sabberworm/php-css-parser": "self.version"
+    },
+    "non-feature-branches": ["*.-totara"]
 }
