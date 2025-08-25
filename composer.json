@@ -64,11 +64,9 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-8.9.0-totara": "8.9.0-totara"
         }
     },
     "replace": {
         "sabberworm/php-css-parser": "self.version"
-    },
-    "non-feature-branches": ["*.-totara"]
+    }
 }
