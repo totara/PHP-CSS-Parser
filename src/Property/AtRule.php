@@ -15,7 +15,7 @@ interface AtRule extends Renderable, Commentable
      *
      * @internal
      */
-    const BLOCK_RULES = 'media/document/supports/region-style/font-feature-values';
+    const BLOCK_RULES = 'media/document/supports/region-style/font-feature-values/container';
 
     /**
      * … and more font-specific ones (to be used inside font-feature-values)
