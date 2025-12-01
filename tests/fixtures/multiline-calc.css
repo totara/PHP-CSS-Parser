@@ -1,0 +1,6 @@
+.btn {
+  --foo: calc(
+    var(--bar) +
+      (var(--baz) + var(--qux)) * 2
+  );
+}
