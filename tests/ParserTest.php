@@ -1265,4 +1265,16 @@ body {background-color: red;}';
         self::assertTrue(is_a($urlRule->getValue(), '\Sabberworm\CSS\Value\URL'));
         self::assertTrue(is_a($calcRule->getValue(), '\Sabberworm\CSS\Value\CalcFunction'));
     }
+
+    /**
+     * @test
+     */
+    public function multilineCalc()
+    {
+        $oDoc = self::parsedStructureForFile('multiline-calc');
+        $sExpected = <<<EXPECTED
+.btn {--foo: calc(var(--bar) + ( var(--baz) + var(--qux) ) * 2);}
+EXPECTED;
+        self::assertSame($sExpected, $oDoc->render());
+    }
 }
