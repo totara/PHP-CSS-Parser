@@ -76,10 +76,10 @@ class CalcFunction extends CSSFunction
             } else {
                 if (in_array($oParserState->peek(), $aOperators)) {
                     if (($oParserState->comes('-') || $oParserState->comes('+'))) {
+                        $sNextChar = $oParserState->peek(1, 1);
                         if (
                             $oParserState->peek(1, -1) != ' '
-                            || !($oParserState->comes('- ')
-                                || $oParserState->comes('+ '))
+                            || !($sNextChar === ' ' || $sNextChar === "\n" || $sNextChar === "\r")
                         ) {
                             throw new UnexpectedTokenException(
                                 " {$oParserState->peek()} ",

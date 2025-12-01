@@ -1321,4 +1321,16 @@ body {background-color: red;}';
         $this->assertCount(1, $comments);
         $this->assertEquals("Find Me!", $comments[0]->getComment());
     }
+
+    /**
+     * @test
+     */
+    public function multilineCalc()
+    {
+        $oDoc = self::parsedStructureForFile('multiline-calc');
+        $sExpected = <<<EXPECTED
+.btn {--foo: calc(var(--bar) + ( var(--baz) + var(--qux) ) * 2);}
+EXPECTED;
+        self::assertSame($sExpected, $oDoc->render());
+    }
 }
